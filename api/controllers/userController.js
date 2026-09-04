@@ -1,4 +1,3 @@
-import { use } from "react";
 import User from "../models/User.js";
 
 export const completeProfile = async (req, res) => {
