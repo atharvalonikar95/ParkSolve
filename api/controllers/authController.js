@@ -2,7 +2,6 @@ import User from "../models/User.js"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import redisClient from "../config/redis.js"
-import { use } from "react"
 import { sendVerificationEmail } from "../helpers/sendMail.js"
 export const signUp = async (req, res) => {
     const { firstName, lastName, email } = await req.body
