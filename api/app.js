@@ -18,10 +18,6 @@ app.use(cors({
 // app.options('*', cors());
 app.use(express.json());
 app.use(cookieParser());
-app.use("/api/v1/auth", authRoute);
-app.use("/api/v1/user", userRoute);
-app.use("/api/v1/admin", adminRoute);
-
 app.use(async (req, res, next) => {
   try {
     await dbConnect();
@@ -34,6 +30,10 @@ app.use(async (req, res, next) => {
     });
   }
 });
+app.use("/api/v1/auth", authRoute);
+app.use("/api/v1/user", userRoute);
+app.use("/api/v1/admin", adminRoute);
+
 
 app.get("/", (req, res) => {
   res.status(200).send("API Running...");
