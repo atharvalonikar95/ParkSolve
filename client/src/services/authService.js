@@ -117,15 +117,12 @@ export const fetchUser = async () => {
 
 export const Logout = async () => {
     try {
-        await fetch(`${process.env.REACT_APP_API_URL}/api/v1/auth/logout`, {
+        const res=await fetch(`${process.env.REACT_APP_API_URL}/api/v1/auth/logout`, {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             credentials: 'include',
-        });
-
-        if (setUser) setUser(null);
-        handleMenuClose();
-        navigate('/signin', { replace: true });
+        }).then((res)=>res.json())
+        return res
     } catch (error) {
         console.error('Logout failed:', error);
     }

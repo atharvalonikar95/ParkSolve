@@ -23,6 +23,7 @@ import QrCode2Icon from '@mui/icons-material/QrCode2';
 import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Logout } from '../services/authService';
+import toast from 'react-hot-toast';
 
 // Custom Animated Theme Switch
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -105,7 +106,9 @@ const Navbar = () => {
     const handleLogout = async () => {
         try {
             const data = await Logout();
-
+            toast.success(
+                <Typography sx={{ color: '#94A3B8', textAlign: 'center', justifyItems: 'center', fontSize: 14, }}>{data.message}</Typography>,
+            );
             if (setUser) setUser(null);
             handleMenuClose();
             navigate('/signin', { replace: true });
@@ -127,7 +130,7 @@ const Navbar = () => {
             >
                 <Container maxWidth="xl">
                     <Toolbar disableGutters sx={{ display: 'flex', justifyContent: 'space-between', minHeight: '65px' }}>
-                        
+
                         {/* 👈 Styled Logo with Hover Animation & Responsive Size */}
                         <Box
                             component={Link}
@@ -235,50 +238,50 @@ const Navbar = () => {
                                                     <ListItemIcon sx={{ color: '#FFC107' }}>
                                                         <PersonIcon fontSize="small" />
                                                     </ListItemIcon>
-                                                
+
                                                     Dashboard
                                                 </MenuItem>
-                                            ):
-                                            <>
-                                            <MenuItem
-                                                onClick={() => {
-                                                    handleMenuClose();
-                                                    navigate('/home/profile');
-                                                }}
-                                                sx={{ py: 1.2, ':hover': { bgcolor: 'rgba(255, 255, 255, 0.05)' } }}
-                                            >
-                                                <ListItemIcon sx={{ color: '#FFC107' }}>
-                                                    <PersonIcon fontSize="small" />
-                                                </ListItemIcon>
-                                                Profile
-                                            </MenuItem>
+                                            ) :
+                                                <>
+                                                    <MenuItem
+                                                        onClick={() => {
+                                                            handleMenuClose();
+                                                            navigate('/home/profile');
+                                                        }}
+                                                        sx={{ py: 1.2, ':hover': { bgcolor: 'rgba(255, 255, 255, 0.05)' } }}
+                                                    >
+                                                        <ListItemIcon sx={{ color: '#FFC107' }}>
+                                                            <PersonIcon fontSize="small" />
+                                                        </ListItemIcon>
+                                                        Profile
+                                                    </MenuItem>
 
-                                            <MenuItem
-                                                onClick={() => {
-                                                    handleMenuClose();
-                                                    navigate('/home/qr');
-                                                }}
-                                                sx={{ py: 1.2, ':hover': { bgcolor: 'rgba(255, 255, 255, 0.05)' } }}
-                                            >
-                                                <ListItemIcon sx={{ color: '#FFC107' }}>
-                                                    <QrCode2Icon fontSize="small" />
-                                                </ListItemIcon>
-                                                My QR Pass
-                                            </MenuItem>
+                                                    <MenuItem
+                                                        onClick={() => {
+                                                            handleMenuClose();
+                                                            navigate('/home/qr');
+                                                        }}
+                                                        sx={{ py: 1.2, ':hover': { bgcolor: 'rgba(255, 255, 255, 0.05)' } }}
+                                                    >
+                                                        <ListItemIcon sx={{ color: '#FFC107' }}>
+                                                            <QrCode2Icon fontSize="small" />
+                                                        </ListItemIcon>
+                                                        My QR Pass
+                                                    </MenuItem>
 
-                                            <MenuItem
-                                                onClick={() => {
-                                                    handleMenuClose();
-                                                    navigate('/home/contact-details');
-                                                }}
-                                                sx={{ py: 1.2, ':hover': { bgcolor: 'rgba(255, 255, 255, 0.05)' } }}
-                                            >
-                                                <ListItemIcon sx={{ color: '#FFC107' }}>
-                                                    <ContactEmergencyIcon fontSize="small" />
-                                                </ListItemIcon>
-                                                Emergency Contacts
-                                            </MenuItem>
-                                            </>
+                                                    <MenuItem
+                                                        onClick={() => {
+                                                            handleMenuClose();
+                                                            navigate('/home/contact-details');
+                                                        }}
+                                                        sx={{ py: 1.2, ':hover': { bgcolor: 'rgba(255, 255, 255, 0.05)' } }}
+                                                    >
+                                                        <ListItemIcon sx={{ color: '#FFC107' }}>
+                                                            <ContactEmergencyIcon fontSize="small" />
+                                                        </ListItemIcon>
+                                                        Emergency Contacts
+                                                    </MenuItem>
+                                                </>
                                         }
 
                                         <Divider sx={{ borderColor: '#232D42' }} />
