@@ -25,7 +25,18 @@ app.use("/api/v1/admin", adminRoute);
 app.get("/", (req, res) => {
   res.status(200).send("API Running...");
 });
-await dbConnect();
+app.use(async (req, res, next) => {
+  try {
+    await dbConnect();
+    next();
+  } catch (error) {
+    console.error("Database connection failed:", error);
+    res.status(500).json({
+      success: false,
+      message: "Database connection failed",
+    });
+  }
+});
 
 // const PORT = process.env.PORT ||8000;
 
