@@ -15,20 +15,21 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 // 🟢 2. Handle preflight (OPTIONS) requests explicitly
-app.options('*', cors());
+// app.options('*', cors());
 app.use(express.json());
 app.use(cookieParser());
 app.use("/api/v1/auth", authRoute);
 app.use("/api/v1/user", userRoute);
 app.use("/api/v1/admin", adminRoute);
 
-await dbConnect();
 app.get("/", (req, res) => {
   res.status(200).send("API Running...");
 });
+await dbConnect();
 
-const PORT = process.env.PORT ||8000;
+// const PORT = process.env.PORT ||8000;
 
-app.listen(PORT, () => {
-  console.log(`App running at: ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`App running at: ${PORT}`);
+// });
+export default app;
