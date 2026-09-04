@@ -22,6 +22,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import QrCode2Icon from '@mui/icons-material/QrCode2';
 import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { Logout } from '../services/authService';
 
 // Custom Animated Theme Switch
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
