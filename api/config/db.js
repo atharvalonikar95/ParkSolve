@@ -11,7 +11,7 @@ const dbConnect = async () => {
         console.log(`connected to database ${connection.connection.host}`)
     } catch (error) {
         console.log(`error while connecting to database :${error}`)
-        process.exit(1)
+        return res.status(500).json({ success: false, message: "Database connection failed" });
     }
 
 }
