@@ -28,32 +28,32 @@ const OwnerDetails = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
-    const fetchDetails = async () => {
-        try {
-            setLoading(true);
-            setError(false);
-            const res = await fetchVehicleDetails(qrToken);
-            console.log("Vehicle details response:", res);
-
-            // 👈 Correctly extracts res.user from your response object
-            if (res && res.success && res.user) {
-                setUser(res.user);
-            } else if (res && res.user) {
-                setUser(res.user);
-            } else if (res && res.name) {
-                setUser(res);
-            } else {
-                setError(true);
-            }
-        } catch (err) {
-            console.error("Failed to fetch vehicle details:", err);
-            setError(true);
-        } finally {
-            setLoading(false);
-        }
-    };
-
+    
     useEffect(() => {
+        const fetchDetails = async () => {
+            try {
+                setLoading(true);
+                setError(false);
+                const res = await fetchVehicleDetails(qrToken);
+                console.log("Vehicle details response:", res);
+    
+                // 👈 Correctly extracts res.user from your response object
+                if (res && res.success && res.user) {
+                    setUser(res.user);
+                } else if (res && res.user) {
+                    setUser(res.user);
+                } else if (res && res.name) {
+                    setUser(res);
+                } else {
+                    setError(true);
+                }
+            } catch (err) {
+                console.error("Failed to fetch vehicle details:", err);
+                setError(true);
+            } finally {
+                setLoading(false);
+            }
+        };
         if (qrToken) {
             fetchDetails();
         }

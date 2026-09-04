@@ -6,13 +6,13 @@ import EditContacts from "./EditContacts";
 import ContactCards from "./ContactCards";
 import toast from "react-hot-toast";
 
+const initialContact = {
+    name: "",
+    phone: "",
+    relation: "",
+};
+const MAX_CONTACTS = 2;
 const ContactDetails = () => {
-    const initialContact = {
-        name: "",
-        phone: "",
-        relation: "",
-    };
-    const MAX_CONTACTS = 2;
 
     const { user, setUser } = useAuth();
 
