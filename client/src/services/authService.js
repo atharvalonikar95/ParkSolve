@@ -96,7 +96,7 @@ export const resetPass = async (email, password) => {
 
 export const fetchUser = async () => {
     try {
-        const response = await fetch("http://localhost:8000/api/v1/auth/profile", {
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/v1/auth/profile`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json"
@@ -104,7 +104,7 @@ export const fetchUser = async () => {
             credentials: 'include',
         })
         const data = await response.json()
-        if (response.ok &&  data.user) {
+        if (response.ok && data.user) {
             return data.user
         } else {
             return data.message
@@ -115,3 +115,18 @@ export const fetchUser = async () => {
     }
 }
 
+export const Logout = async () => {
+    try {
+        await fetch(`${process.env.REACT_APP_API_URL}/api/v1/auth/logout`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            credentials: 'include',
+        });
+
+        if (setUser) setUser(null);
+        handleMenuClose();
+        navigate('/signin', { replace: true });
+    } catch (error) {
+        console.error('Logout failed:', error);
+    }
+};
