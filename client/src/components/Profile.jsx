@@ -9,7 +9,7 @@ import {
     Paper,
     Grid,
     Divider,
-    Button,
+    // Button,
     CircularProgress,
     Container,
     Stack
@@ -20,7 +20,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import QrCode2Icon from '@mui/icons-material/QrCode2';
-import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
+// import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 const Profile = () => {

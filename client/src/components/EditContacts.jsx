@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Box, Button, Modal, Stack, TextField, Typography } from '@mui/material';
+import { Box, Button, Modal, TextField, Typography } from '@mui/material';
 import { useAuth } from '../context/AuthProvider';
 import { CompleteProfile } from '../services/userService';
 

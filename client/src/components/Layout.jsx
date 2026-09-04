@@ -2,7 +2,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "./Navbar";
 // import Footer from "./Footer";
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 
 const Layout = () => {
     // const [mode, setMode] = useState(localStorage.getItem('theme') || 'light');
