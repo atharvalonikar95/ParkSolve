@@ -8,10 +8,14 @@ import dbConnect from "./config/db.js";
 import cookieParser from "cookie-parser";
 import adminRoute from './routes/adminRoute.js'
 const app = express()
+const allowedOrigins = [
+    'http://localhost:3000',
+    'https://client-mnze.vercel.app'
+];
 app.use(cors({
-    origin: true, // Automatically reflects the frontend domain (https://client-mnze.vercel.app)
+    origin: allowedOrigins, // Automatically reflects the frontend domain (https://client-mnze.vercel.app)
     credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    methods: ['GET', 'POST', 'PUT','PATCH', 'DELETE', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization']
 }));
 // 🟢 2. Handle preflight (OPTIONS) requests explicitly

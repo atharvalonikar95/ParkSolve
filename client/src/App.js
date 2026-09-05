@@ -16,6 +16,8 @@ import QRCode from './components/QRCode';
 import OwnerDetails from './pages/OwnerDetails';
 import AdminDashboard from './pages/AdminDashboard';
 import { Toaster } from 'react-hot-toast';
+import HomePage from './pages/LandingPage';
+import ScrollToTop from './helpers/ScrollToTop';
 
 //path='/home'
 function App() {
@@ -27,19 +29,19 @@ function App() {
           {/* protected route */}
           <Route element={<ProtectedRoute />}>
             <Route path='/home' element={<Home />} >
-              <Route path='profile' element={<Profile/>} />
-              <Route path='verify-phone' element={<VerifyPhone/>} />
-              <Route path='contact-details' element={<ContactDetails/>} />
-              <Route path='qr' element={<QRCode/>} />
+              <Route path='profile' element={<Profile />} />
+              <Route path='verify-phone' element={<VerifyPhone />} />
+              <Route path='contact-details' element={<ContactDetails />} />
+              <Route path='qr' element={<QRCode />} />
             </Route>
           </Route>
           {/* admin route */}
           <Route element={<AdminRoutes />}>
-            <Route path='/dashboard' element={<AdminDashboard/>} />
+            <Route path='/dashboard' element={<AdminDashboard />} />
           </Route>
         </Route>
-        <Route path='/vehicle/:qrToken' element={<OwnerDetails/>} />
-        <Route path='/' element={<h1>home page</h1>} />
+        <Route path='/vehicle/:qrToken' element={<OwnerDetails />} />
+        <Route path='/' element={<HomePage />} />
         <Route path='/signin' element={<SignIn />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/forgot-password' element={<ForgotPassword />} />
@@ -47,7 +49,7 @@ function App() {
         <Route path='/reset-password' element={<ResetPassword />} />
 
       </Routes>
-
+      <ScrollToTop />
     </div>
   );
 }

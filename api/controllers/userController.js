@@ -201,7 +201,7 @@ export const getQR = async (req, res) => {
                 message: "QR code not found",
             });
         }
-        const qrUrl = `http://localhost:3000/vehicle/${user.qrToken}`;
+        const qrUrl = process.env.NODE_ENV === 'production'?`https://client-mnze.vercel.app/vehicle/${user.qrToken}`:`http://localhost:3000/vehicle/${user.qrToken}`;
         return res.status(200).json({
             success: true,
             message: "QR code fetched Successfully.",

@@ -63,10 +63,10 @@ const ContactCards = ({ contacts = [], handleDeleteSuccess }) => {
                 bgcolor: "inherit",
             }}
         >
-            {contacts.map((contact) => (
+            {contacts.map((contact, index) => (
                 <Card
                     elevation={2}
-                    key={contact._id}
+                    key={contact._id ||`contact-${index}`}
                     sx={{
                         minWidth: 260,
                         position: 'relative',
