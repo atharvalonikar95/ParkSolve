@@ -30,7 +30,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 import ReportProblemIcon from '@mui/icons-material/ReportProblem';
-import NoPhotographyIcon from '@mui/icons-material/NoPhotography';
+// import NoPhotographyIcon from '@mui/icons-material/NoPhotography';
 import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
 import CarCrashIcon from '@mui/icons-material/CarCrash';
 
